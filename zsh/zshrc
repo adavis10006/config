@@ -6,26 +6,35 @@ ZSH_CUSTOM=$HOME/Terminal/config/zsh/customs
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="bullet-train"
-BULLETTRAIN_PROMPT_ORDER=(
-  time
-  status
-  custom
-  context
-  dir
-  git
-  hg
-  cmd_exec_time
-)
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vim="/Applications/MacVim.app/Contents/bin/vim"
+
+# export TERM="screen-256color"
 export TERM="xterm-256color"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 export UPDATE_ZSH_DAYS=7
+
+typeset -U PATH path
+path+=("/Users/davis/go/bin")
+path+=("/Users/davis/.cargo/bin")
+path+=("/usr/local/opt/llvm/bin")
+path+=("/usr/local/opt/openssl/bin")
+
+typeset -TU LD_LIBRARY_PATH ld_library_path
+ld_library_path+=("/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include")
+
+export RUSTC_WRAPPER="/Users/davis/.rustup/toolchains/nightly-x86_64-apple-darwin/bin/clippy-driver"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+rustup default nightly >/dev/null 2>/dev/null
+
+# export LDFLAGS="-L/usr/local/opt/llvm/lib"
+# export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -33,6 +42,10 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew colored-man-pages docker git osx pip python sudo svn)
+plugins=(brew colored-man-pages docker git golang osx pip python sudo)
 
 source $ZSH/oh-my-zsh.sh
+
+# export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -1,12 +1,42 @@
 [user]
-	name = Chen,Shang-Kuei(Davis)
-	email = adavis10006@gamil.com
+	name = "Chen, Shang-Kuei"
+	email = "adavis10006@gamil.com"
 
 [color]
   ui = true
 
+[color "branch"]
+  current = yellow bold
+  local = green bold
+  remote = cyan bold
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
+
+[diff]
+  tool = vimdiff
+
+[help]
+  autocorrect = 1
+
+[merge]
+  log = true
+
+[core]
+  pager = cat
+  editor = vim
+  whitespace = fix,-indent-with-non-tab,trailing-space, cr-at-eol
+
 [alias]
-  tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  lg = log --graph --abbrev-commit --topo-order --decorate --oneline --boundary --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  tree = log --color --graph --abbrev-commit --decorate --oneline --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
   stat = log --abbrev-commit --pretty=short --stat
   search = log --abbrev-commit --patch --find-renames --follow --stat --
 ; --abbrev-commit Instead of showing the full 40-byte hexadecimal commit object name, show only a partial prefix.
@@ -17,8 +47,6 @@
 ; --stat          show a summary of the total additions and removals for that commit.
 ; --              the convention for Git (and some other bash commands) to specify a sinGle file.
 
-[core]
-	editor = nvim
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
