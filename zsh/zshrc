@@ -7,6 +7,16 @@ ZSH_CUSTOM=$HOME/Terminal/config/zsh/customs
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="bullet-train"
+BULLETTRAIN_PROMPT_ORDER=(
+  time
+  status
+  custom
+  context
+  dir
+  git
+  hg
+  cmd_exec_time
+)
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
