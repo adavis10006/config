@@ -1,0 +1,26 @@
+[user]
+	name = Chen,Shang-Kuei(Davis)
+	email = adavis10006@gamil.com
+
+[color]
+  ui = true
+
+[alias]
+  tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  stat = log --abbrev-commit --pretty=short --stat
+  search = log --abbrev-commit --patch --find-renames --follow --stat --
+; --abbrev-commit Instead of showing the full 40-byte hexadecimal commit object name, show only a partial prefix.
+; --decorate      Print out the ref names of any commits that are shown.
+; -p              Show patches, as in show what actually changed for each commit.
+; -M              Show file renames in a readable way.
+; --follow        If file is renamed, this will keep following changes through the old file.
+; --stat          show a summary of the total additions and removals for that commit.
+; --              the convention for Git (and some other bash commands) to specify a sinGle file.
+
+[core]
+	editor = nvim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

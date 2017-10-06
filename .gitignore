@@ -1,0 +1,8 @@
+nvim/plugged
+tmux/plugins
+tmux/resurrect
+
+.DS_Store
+.netrwhist
+.tags
+
